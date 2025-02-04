@@ -5,7 +5,7 @@ import AuthProvider from "@/providers/authProvider";
 const App: FC = () => {
   return (
     <AuthProvider>
-      <AppRoutes />;
+      <AppRoutes />
     </AuthProvider>
   );
 };

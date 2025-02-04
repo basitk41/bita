@@ -25,4 +25,8 @@ export const FooterContainer = styled.footer`
     font-size: 1.5rem;
     color: #ffffff;
   }
+
+  @media (max-width: 600px) {
+    padding: 1rem 0rem;
+  }
 `;

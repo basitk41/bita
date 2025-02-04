@@ -11,12 +11,20 @@ export const HeaderContainer = styled.header`
     rgba(73, 63, 252, 1) 100%
   );
   color: #ffffff;
+
+  @media (max-width: 600px) {
+    padding: 1rem 1rem;
+  }
 `;
 
 export const LogoAndLinks = styled.div`
   display: flex;
   align-items: center;
   gap: 4rem;
+
+  @media (max-width: 600px) {
+    gap: 2.5rem;
+  }
 `;
 
 export const NavLinks = styled.nav`

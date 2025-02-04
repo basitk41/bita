@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface AppButtonProps {
-  variat: "primary" | "info" | "success" | "warning" | "danger";
+  variat: "primary" | "info" | "success" | "warning" | "danger" | "form";
 }
 
 const variantStyles: Record<AppButtonProps["variat"], string> = {
@@ -43,6 +43,14 @@ const variantStyles: Record<AppButtonProps["variat"], string> = {
 
     &:hover {
       background-color: #bd2130;
+    }
+  `,
+  form: `
+    background-color: #5c6bc0;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #3e4a89;
     }
   `,
 };
