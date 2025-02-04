@@ -1,10 +1,11 @@
 import { FC, Fragment } from "react";
 import { Outlet } from "react-router-dom";
+import Header from "@/components/header";
 
 const Layout: FC = () => {
   return (
     <Fragment>
-      <header>Header</header>
+      <Header />
       <Outlet />
       <footer>Footer</footer>
     </Fragment>
