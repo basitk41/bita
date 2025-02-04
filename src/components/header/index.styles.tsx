@@ -15,6 +15,11 @@ export const HeaderContainer = styled.header`
   @media (max-width: 600px) {
     padding: 1rem 1rem;
   }
+
+  @media (max-width: 330px) {
+    display: inline-table;
+    width: 100%;
+  }
 `;
 
 export const LogoAndLinks = styled.div`
