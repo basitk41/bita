@@ -10,10 +10,10 @@ export const TodoCardContainer = styled.div`
 `;
 
 export const TodoText = styled.div`
-  font-size: 1rem;
+  font-size: 1.2rem;
   min-height: 40px;
   padding: 8px;
-  background: rgb(87, 224, 24);
+  background: rgb(240, 244, 243);
   border-radius: 4px;
   border: 1px solid #ddd;
   cursor: text;

@@ -38,7 +38,7 @@ const variantStyles: Record<AppButtonProps["variat"], string> = {
     }
   `,
   danger: `
-    background-color: #dc3545;
+    background-color:rgb(220, 79, 93);
     color: #ffffff;
 
     &:hover {
