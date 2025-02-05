@@ -33,3 +33,34 @@ export interface IWeatherData {
   };
   name: string;
 }
+
+export interface IRandomUserAPIResponse {
+  results: User[];
+  info: Info;
+}
+
+interface User {
+  gender: string;
+  name: Name;
+  location: Location;
+  email: string;
+  phone: string;
+  picture: Picture;
+}
+
+interface Name {
+  first: string;
+  last: string;
+}
+
+interface Location {
+  city: string;
+  state: string;
+  country: string;
+}
+
+interface Picture {
+  large: string;
+  medium: string;
+  thumbnail: string;
+}
