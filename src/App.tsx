@@ -1,12 +1,15 @@
 import { FC } from "react";
 import AppRoutes from "./routes";
 import ContextProvider from "@/providers";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const App: FC = () => {
   return (
-    <ContextProvider>
-      <AppRoutes />
-    </ContextProvider>
+    <QueryClientProvider client={new QueryClient()}>
+      <ContextProvider>
+        <AppRoutes />
+      </ContextProvider>
+    </QueryClientProvider>
   );
 };
 

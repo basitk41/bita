@@ -28,7 +28,7 @@ export const LeftColumn = styled.div`
   @media (max-width: 600px) {
     max-width: 100%;
     padding: 1rem;
-    margin: 20px 10px;
+    margin: 20px 0px;
   }
 `;
 
@@ -41,5 +41,6 @@ export const RightColumn = styled.div`
 
   @media (max-width: 768px) {
     order: 2;
+    margin-bottom: 60px;
   }
 `;
