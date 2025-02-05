@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "@/routes/protected-route";
 import Layout from "@/components/layout";
 import Homepage from "@/pages/homepage";
-import About from "@/pages/about";
-import Login from "@/pages/loginpage";
+import Aboutpage from "@/pages/aboutpage";
+import Loginpage from "@/pages/loginpage";
 
 const AppRoutes: FC = () => {
   return (
@@ -25,11 +25,11 @@ const AppRoutes: FC = () => {
             index
             element={
               <ProtectedRoute>
-                <About />
+                <Aboutpage />
               </ProtectedRoute>
             }
           />
-          <Route path="/login" index element={<Login />} />
+          <Route path="/login" index element={<Loginpage />} />
         </Route>
       </Routes>
     </Router>

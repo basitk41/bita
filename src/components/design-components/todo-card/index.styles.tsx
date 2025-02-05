@@ -4,7 +4,7 @@ export const TodoCardContainer = styled.div`
   position: relative;
   background: rgb(173, 167, 167);
   border-radius: 8px;
-  padding: 5px;
+  padding: 3px;
   margin-bottom: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
@@ -12,7 +12,7 @@ export const TodoCardContainer = styled.div`
 export const TodoText = styled.div`
   font-size: 1.2rem;
   min-height: 40px;
-  padding: 8px;
+  padding: 5px 25px 5px 5px;
   background: rgb(240, 244, 243);
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -32,8 +32,8 @@ export const TodoText = styled.div`
 
 export const DeleteButton = styled.i`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 6px;
   background: transparent;
   border: none;
   color: #e63946;
