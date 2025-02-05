@@ -25,6 +25,10 @@ const GenericLoginForm: React.FC = () => {
     }
   };
 
+  if (token.get()) {
+    nivigate("/");
+  }
+
   return (
     <FormContainer>
       <h2>Login</h2>
