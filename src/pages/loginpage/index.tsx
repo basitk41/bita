@@ -5,6 +5,7 @@ import Button from "@/components/design-components/button";
 import { useFormValidation } from "@/hooks/useFormValidation";
 import FormContainer from "@/components/design-components/form-container";
 import { useAuth } from "@/hooks/useAuth";
+import { token } from "@/utils";
 
 const GenericLoginForm: React.FC = () => {
   const nivigate = useNavigate();
@@ -19,7 +20,7 @@ const GenericLoginForm: React.FC = () => {
     e.preventDefault();
     if (validateEmail(email) && validatePassword(password)) {
       setAuth(true);
-      localStorage.setItem("token", "true");
+      token.set(email);
       nivigate("/");
     }
   };

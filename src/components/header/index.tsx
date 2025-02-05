@@ -5,12 +5,13 @@ import Logo from "@/components/design-components/logo";
 import Button from "@/components/design-components/button";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { token } from "@/utils";
 
 const Header: React.FC = () => {
   const [isAuth, setAuth] = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    token.remove();
     setAuth(false);
     navigate("/login");
   };
