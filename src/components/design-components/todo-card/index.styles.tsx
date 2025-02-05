@@ -1,0 +1,47 @@
+import styled from "styled-components";
+
+export const TodoCardContainer = styled.div`
+  position: relative;
+  background: rgb(173, 167, 167);
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+export const TodoText = styled.div`
+  font-size: 1rem;
+  min-height: 40px;
+  padding: 8px;
+  background: rgb(87, 224, 24);
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: text;
+  text-align: start;
+
+  &:empty::before {
+    content: "Click to add text...";
+    color: black;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+`;
+
+export const DeleteButton = styled.i`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #e63946;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #d93c3c;
+  }
+`;
