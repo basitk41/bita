@@ -12,7 +12,7 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <AppButton variat={variat} {...props}>
+    <AppButton $variat={variat} {...props}>
       {children}
     </AppButton>
   );

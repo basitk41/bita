@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 interface AppButtonProps {
-  variat: "primary" | "info" | "success" | "warning" | "danger" | "form";
+  $variat: "primary" | "info" | "success" | "warning" | "danger" | "form";
 }
 
-const variantStyles: Record<AppButtonProps["variat"], string> = {
+const variantStyles: Record<AppButtonProps["$variat"], string> = {
   primary: `
     background-color: #007bff;
     color: #ffffff;
@@ -63,5 +63,5 @@ export const AppButton = styled.button<AppButtonProps>`
   cursor: pointer;
   transition: background-color 0.2s;
 
-  ${({ variat }) => variantStyles[variat]}
+  ${({ $variat }) => variantStyles[$variat] || variantStyles.primary}
 `;
