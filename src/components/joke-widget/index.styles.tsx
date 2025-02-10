@@ -6,7 +6,8 @@ export const JokeWidgetWrapper = styled.div`
   margin: 20px auto;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 500px;
+  height: 255px;
   max-width: 100%;
   text-align: center;
   font-family: "Arial", sans-serif;

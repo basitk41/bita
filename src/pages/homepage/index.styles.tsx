@@ -4,7 +4,7 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px 20px 50px 20px;
+  margin: 15px 20px 50px 20px;
   gap: 20px;
 
   @media (max-width: 768px) {

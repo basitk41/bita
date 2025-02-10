@@ -7,6 +7,7 @@ const JokeWidget = () => {
   const {
     data: joke,
     isLoading: loading,
+    isFetching,
     isError: error,
     refetch,
   } = useJokeAPIQuery();
@@ -28,7 +29,9 @@ const JokeWidget = () => {
           </JokeText>
           <JokeText>{joke?.type === "single" ? "" : joke?.delivery}</JokeText>
           <JokeText>{"😂😂"}</JokeText>
-          <Button onClick={() => refetch()}>Get Another Joke</Button>
+          <Button isLoading={isFetching} onClick={() => refetch()}>
+            Get Another Joke
+          </Button>
         </>
       )}
     </JokeWidgetWrapper>
