@@ -1,9 +1,13 @@
 import styled, { keyframes } from "styled-components";
 
-interface SpinnerProps {
+interface ISpinnerProps {
   $color: string;
   $width: string;
   $height: string;
+}
+
+interface ISpinnerWrapperProps {
+  $align?: "start" | "center" | "end";
 }
 
 const spin = keyframes`
@@ -15,7 +19,7 @@ const spin = keyframes`
   }
 `;
 
-export const Spinner = styled.div<SpinnerProps>`
+export const Spinner = styled.div<ISpinnerProps>`
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   animation: ${spin} 1s linear infinite;
@@ -26,5 +30,17 @@ export const Spinner = styled.div<SpinnerProps>`
     border-top: 4px solid ${$color};
     width: ${$width};
     height: ${$height};
+  `}
+`;
+
+export const SpinnerWrapper = styled.div<ISpinnerWrapperProps>`
+  display: inline-block;
+
+  ${({ $align }) =>
+    $align &&
+    `
+    margin: 10px auto;
+    display: flex;
+    justify-content: ${$align};
   `}
 `;

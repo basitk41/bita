@@ -1,12 +1,17 @@
-import { Spinner } from "./index.styles";
+import { Spinner, SpinnerWrapper } from "./index.styles";
 import { ISpinnerProps } from "@/types";
 
 const LoadingSpinner: React.FC<ISpinnerProps> = ({
   color = "#fff",
   width = "40px",
   height = "40px",
+  align,
 }) => {
-  return <Spinner $color={color} $width={width} $height={height} />;
+  return (
+    <SpinnerWrapper $align={align}>
+      <Spinner $color={color} $width={width} $height={height} />
+    </SpinnerWrapper>
+  );
 };
 
 export default LoadingSpinner;

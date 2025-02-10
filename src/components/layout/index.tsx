@@ -1,14 +1,20 @@
-import { FC, Fragment } from "react";
+import { FC, Fragment, lazy, Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Spinner from "../design-components/spinner";
+
+const Header = lazy(() => import("@/components/header"));
+const Footer = lazy(() => import("@/components/footer"));
 
 const Layout: FC = () => {
   return (
     <Fragment>
-      <Header />
+      <Suspense fallback={<Spinner align="center" />}>
+        <Header />
+      </Suspense>
       <Outlet />
-      <Footer />
+      <Suspense fallback={<Spinner align="center" />}>
+        <Footer />
+      </Suspense>
     </Fragment>
   );
 };

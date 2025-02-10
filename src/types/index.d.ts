@@ -98,6 +98,7 @@ export interface ISpinnerProps {
   color?: string;
   width?: string;
   height?: string;
+  align?: "start" | "center" | "end";
 }
 
 export interface ITodoCardProps {

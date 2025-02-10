@@ -1,10 +1,12 @@
-import { FC } from "react";
+import { FC, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "@/routes/protected-route";
 import Layout from "@/components/layout";
-import Homepage from "@/pages/homepage";
-import Aboutpage from "@/pages/aboutpage";
-import Loginpage from "@/pages/loginpage";
+import Spinner from "@/components/design-components/spinner";
+
+const Homepage = lazy(() => import("@/pages/homepage"));
+const Aboutpage = lazy(() => import("@/pages/aboutpage"));
+const Loginpage = lazy(() => import("@/pages/loginpage"));
 
 const AppRoutes: FC = () => {
   return (
@@ -15,21 +17,33 @@ const AppRoutes: FC = () => {
             path="/"
             index
             element={
-              <ProtectedRoute>
-                <Homepage />
-              </ProtectedRoute>
+              <Suspense fallback={<Spinner align="center" />}>
+                <ProtectedRoute>
+                  <Homepage />
+                </ProtectedRoute>
+              </Suspense>
             }
           />
           <Route
             path="/about"
             index
             element={
-              <ProtectedRoute>
-                <Aboutpage />
-              </ProtectedRoute>
+              <Suspense fallback={<Spinner align="center" />}>
+                <ProtectedRoute>
+                  <Aboutpage />
+                </ProtectedRoute>
+              </Suspense>
             }
           />
-          <Route path="/login" index element={<Loginpage />} />
+          <Route
+            path="/login"
+            index
+            element={
+              <Suspense fallback={<Spinner align="center" />}>
+                <Loginpage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </Router>
