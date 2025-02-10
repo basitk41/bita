@@ -5,15 +5,7 @@ import {
   ToggleButton,
   ErrorMessage,
 } from "./index.styles";
-
-interface InputFieldProps {
-  type: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  errorMessage?: string;
-  placeholder: string;
-}
+import { InputFieldProps } from "@/types";
 
 const InputField: React.FC<InputFieldProps> = ({
   type,

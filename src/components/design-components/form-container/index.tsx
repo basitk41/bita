@@ -1,10 +1,7 @@
 import { FC } from "react";
 import { Form } from "./index.styles";
-
-interface FormProps {
-  children: React.ReactNode;
-}
-const FormContainer: FC<FormProps> = ({ children }) => {
+import { IFormContainerProps } from "@/types";
+const FormContainer: FC<IFormContainerProps> = ({ children }) => {
   return <Form>{children}</Form>;
 };
 

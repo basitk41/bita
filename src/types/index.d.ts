@@ -1,3 +1,4 @@
+import React from "react";
 export interface ITodo {
   id: number;
   text: string;
@@ -71,4 +72,41 @@ export interface JokeAPIResponse {
   setup?: string;
   delivery?: string;
   id: number;
+}
+
+export interface IFormContainerProps {
+  children: React.ReactNode;
+}
+
+export interface IButtonProps {
+  children: React.ReactNode;
+  onClick?: (e: React.MouseEvent) => void;
+  variat?: "primary" | "info" | "success" | "warning" | "danger" | "form";
+  isLoading?: boolean;
+}
+
+export interface InputFieldProps {
+  type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  errorMessage?: string;
+  placeholder: string;
+}
+
+export interface ISpinnerProps {
+  color?: string;
+  width?: string;
+  height?: string;
+}
+
+export interface ITodoCardProps {
+  onDelete: () => void;
+  onChange: (newText: string) => void;
+  initialText: string;
+}
+
+export interface IUserProfileProps {
+  setAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  isAuth: boolean;
 }

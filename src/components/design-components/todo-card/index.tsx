@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { TodoCardContainer, DeleteButton, TodoText } from "./index.styles";
+import { ITodoCardProps } from "@/types";
 
-interface TodoCardProps {
-  onDelete: () => void;
-  onChange: (newText: string) => void;
-  initialText: string;
-}
-const TodoCard: React.FC<TodoCardProps> = ({
+const TodoCard: React.FC<ITodoCardProps> = ({
   onDelete,
   onChange,
   initialText,

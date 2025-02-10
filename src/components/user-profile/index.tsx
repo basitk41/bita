@@ -10,11 +10,8 @@ import { useUserProfileQuery } from "@/queries/useUserProfileQuery";
 import { useNavigate } from "react-router-dom";
 import { token } from "@/utils";
 import Spinner from "@/components/design-components/spinner";
+import { IUserProfileProps } from "@/types";
 
-interface IUserProfileProps {
-  setAuth: React.Dispatch<React.SetStateAction<boolean>>;
-  isAuth: boolean;
-}
 const UserProfile: React.FC<IUserProfileProps> = ({ setAuth, isAuth }) => {
   const popupRef = useRef<HTMLDivElement>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);

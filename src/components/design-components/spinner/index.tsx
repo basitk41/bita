@@ -1,11 +1,7 @@
 import { Spinner } from "./index.styles";
+import { ISpinnerProps } from "@/types";
 
-interface ILoadingSpinnerProps {
-  color?: string;
-  width?: string;
-  height?: string;
-}
-const LoadingSpinner: React.FC<ILoadingSpinnerProps> = ({
+const LoadingSpinner: React.FC<ISpinnerProps> = ({
   color = "#fff",
   width = "40px",
   height = "40px",
