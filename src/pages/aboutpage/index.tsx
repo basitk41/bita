@@ -72,6 +72,7 @@ const AboutUsPage: React.FC = () => {
               href="https://github.com/basitk41"
               target="_blank"
               rel="noopener noreferrer"
+              data-testid="github-link"
             >
               GitHub
             </a>

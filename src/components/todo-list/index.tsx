@@ -33,7 +33,11 @@ export const TodoList: React.FC = () => {
   return (
     <TodoContainer>
       <h1>Todo List</h1>
-      <i className="fa fa-plus" onClick={handleAddTodo}></i>
+      <i
+        data-testid="add-todo"
+        className="fa fa-plus"
+        onClick={handleAddTodo}
+      ></i>
       {isLoading ? (
         <div>
           <Spinner color="black" />

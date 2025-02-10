@@ -10,10 +10,10 @@ const MemoizedJokeWidget = React.memo(JokeWidget);
 const Homepage: React.FC = () => {
   return (
     <PageContainer>
-      <LeftColumn>
+      <LeftColumn data-testid="left-column">
         <MemoizedTodoList />
       </LeftColumn>
-      <RightColumn>
+      <RightColumn data-testid="right-column">
         <MemoizedWeatherWidget />
         <MemoizedJokeWidget />
       </RightColumn>

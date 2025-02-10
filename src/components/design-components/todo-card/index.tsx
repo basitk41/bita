@@ -17,7 +17,11 @@ const TodoCard: React.FC<ITodoCardProps> = ({
 
   return (
     <TodoCardContainer>
-      <DeleteButton className="fa fa-trash" onClick={onDelete} />
+      <DeleteButton
+        data-testid="delete-todo"
+        className="fa fa-trash"
+        onClick={onDelete}
+      />
       <TodoText
         contentEditable
         suppressContentEditableWarning

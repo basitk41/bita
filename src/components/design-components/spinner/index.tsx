@@ -8,7 +8,7 @@ const LoadingSpinner: React.FC<ISpinnerProps> = ({
   align,
 }) => {
   return (
-    <SpinnerWrapper $align={align}>
+    <SpinnerWrapper $align={align} data-testid="spinner">
       <Spinner $color={color} $width={width} $height={height} />
     </SpinnerWrapper>
   );
