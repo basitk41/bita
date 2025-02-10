@@ -36,12 +36,12 @@ export const DeleteButton = styled.i`
   right: 6px;
   background: transparent;
   border: none;
-  color: #e63946;
+  color: #e63946 !important;
   cursor: pointer;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #d93c3c;
+    color: rgb(187, 36, 36) !important;
   }
 `;

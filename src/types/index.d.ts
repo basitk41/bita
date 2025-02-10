@@ -64,3 +64,11 @@ interface Picture {
   medium: string;
   thumbnail: string;
 }
+
+export interface JokeAPIResponse {
+  type: "single" | "twopart";
+  joke?: string;
+  setup?: string;
+  delivery?: string;
+  id: number;
+}
