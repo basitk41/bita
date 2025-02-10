@@ -8,6 +8,8 @@ npm install
 
 ## Running App
 
+Simply rename the file from .env.example to .env so that it can be used by Vite during development.
+
 ```sh
 npm run dev
 ```
