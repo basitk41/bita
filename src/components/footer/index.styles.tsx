@@ -8,7 +8,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 0.4rem 2rem;
   background: linear-gradient(
     90deg,
     rgb(110, 94, 254) 0%,
