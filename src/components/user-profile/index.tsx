@@ -9,6 +9,7 @@ import {
 import { useUserProfileQuery } from "@/queries/useUserProfileQuery";
 import { useNavigate } from "react-router-dom";
 import { token } from "@/utils";
+import Spinner from "@/components/design-components/spinner";
 
 interface IUserProfileProps {
   setAuth: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,11 +18,12 @@ interface IUserProfileProps {
 const UserProfile: React.FC<IUserProfileProps> = ({ setAuth, isAuth }) => {
   const popupRef = useRef<HTMLDivElement>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const { data: userProfile } = useUserProfileQuery(isAuth);
+  const { data: userProfile, isLoading } = useUserProfileQuery(isAuth);
   const navigate = useNavigate();
 
-  const handleUserIconClick = () => {
-    setIsPopupOpen((prev) => !prev);
+  const handleUserIconClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsPopupOpen(!isPopupOpen);
   };
   const handleLogout = () => {
     token.remove();
@@ -47,8 +49,8 @@ const UserProfile: React.FC<IUserProfileProps> = ({ setAuth, isAuth }) => {
   const user = userProfile?.results[0];
 
   return (
-    <UserProfileWrapper onClick={handleUserIconClick}>
-      <UserIcon>
+    <UserProfileWrapper ref={popupRef}>
+      <UserIcon id="user-profile" onClick={handleUserIconClick}>
         {user?.picture?.thumbnail ? (
           <img src={user.picture.thumbnail} alt="user" loading="lazy" />
         ) : (
@@ -56,20 +58,27 @@ const UserProfile: React.FC<IUserProfileProps> = ({ setAuth, isAuth }) => {
         )}
       </UserIcon>
       {isPopupOpen && (
-        <Popup ref={popupRef} onClick={(e) => e.stopPropagation()}>
+        <Popup onClick={(e) => e.stopPropagation()}>
           <LogoutButton className="fa fa-sign-out" onClick={handleLogout} />
-          <UserData>
-            <strong>
-              {user?.name?.first} {user?.name?.last}
-            </strong>
-            <div>{user?.email}</div>
-            <div>Gender: {user?.gender}</div>
-            <div>Phone: {user?.phone}</div>
+
+          {isLoading ? (
             <div>
-              Location: {user?.location?.city}, {user?.location?.state},{" "}
-              {user?.location?.country}
+              <Spinner />
             </div>
-          </UserData>
+          ) : (
+            <UserData>
+              <strong>
+                {user?.name?.first} {user?.name?.last}
+              </strong>
+              <div>{user?.email}</div>
+              <div>Gender: {user?.gender}</div>
+              <div>Phone: {user?.phone}</div>
+              <div>
+                Location: {user?.location?.city}, {user?.location?.state},{" "}
+                {user?.location?.country}
+              </div>
+            </UserData>
+          )}
         </Popup>
       )}
     </UserProfileWrapper>
