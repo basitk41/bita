@@ -2,6 +2,8 @@ import styled, { keyframes } from "styled-components";
 
 interface SpinnerProps {
   $color: string;
+  $width: string;
+  $height: string;
 }
 
 const spin = keyframes`
@@ -16,13 +18,13 @@ const spin = keyframes`
 export const Spinner = styled.div<SpinnerProps>`
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   animation: ${spin} 1s linear infinite;
   display: inline-block;
 
-  ${({ $color }) => `
+  ${({ $color, $width, $height }) => `
     border: 4px solid rgb(104 99 99 / 30%);
     border-top: 4px solid ${$color};
+    width: ${$width};
+    height: ${$height};
   `}
 `;

@@ -7,22 +7,33 @@ import FormContainer from "@/components/design-components/form-container";
 import { useAuth } from "@/hooks/useAuth";
 import { token } from "@/utils";
 
-const GenericLoginForm: React.FC = () => {
+const Loginpage: React.FC = () => {
   const nivigate = useNavigate();
   const [, setAuth] = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [inputs, setInputs] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { emailError, passwordError, validateEmail, validatePassword } =
-    useFormValidation();
+  const { errors, validateInputs, handleFieldValidation } = useFormValidation();
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (validateEmail(email) && validatePassword(password)) {
-      setAuth(true);
-      token.set(email);
-      nivigate("/");
+    if (validateInputs(inputs)) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        setAuth(true);
+        token.set(inputs.email);
+        nivigate("/");
+      }, 1000);
     }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    handleFieldValidation(e.target.name, e.target.value);
   };
 
   if (token.get()) {
@@ -34,23 +45,25 @@ const GenericLoginForm: React.FC = () => {
       <h2>Login</h2>
       <InputField
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        name="email"
+        value={inputs.email}
+        onChange={handleChange}
         placeholder="Enter your email"
-        errorMessage={emailError}
+        errorMessage={errors.email}
       />
       <InputField
         type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        name="password"
+        value={inputs.password}
+        onChange={handleChange}
         placeholder="Enter your password"
-        errorMessage={passwordError}
+        errorMessage={errors.password}
       />
-      <Button variat="form" onClick={handleSubmit}>
+      <Button variat="form" onClick={handleSubmit} isLoading={isLoading}>
         Login
       </Button>
     </FormContainer>
   );
 };
 
-export default GenericLoginForm;
+export default Loginpage;

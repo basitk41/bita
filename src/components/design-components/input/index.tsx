@@ -1,8 +1,14 @@
-import React from "react";
-import { Input, ErrorMessage } from "./index.styles";
+import React, { useState } from "react";
+import {
+  InputWrapper,
+  Input,
+  ToggleButton,
+  ErrorMessage,
+} from "./index.styles";
 
 interface InputFieldProps {
   type: string;
+  name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
@@ -17,15 +23,35 @@ const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const isPasswordType = type === "password";
+  const inputType = isPasswordType && showPassword ? "text" : type;
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   return (
     <>
-      <Input
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        {...props}
-      />
+      <InputWrapper>
+        <Input
+          type={inputType}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          {...props}
+        />
+        {isPasswordType && (
+          <ToggleButton
+            type="button"
+            onClick={togglePasswordVisibility}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? "🙈" : "👁️"}
+          </ToggleButton>
+        )}
+      </InputWrapper>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </>
   );
