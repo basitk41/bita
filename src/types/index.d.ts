@@ -111,3 +111,17 @@ export interface IUserProfileProps {
   setAuth: React.Dispatch<React.SetStateAction<boolean>>;
   isAuth: boolean;
 }
+
+export interface IGeoCoordsProps {
+  latitude: number;
+  longitude: number;
+}
+
+export interface IGeoCodeAPIResponse {
+  items: {
+    position: {
+      lat: number;
+      lng: number;
+    };
+  }[];
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   WeatherContainer,
   WeatherIcon,
@@ -10,12 +10,46 @@ import {
 import { useWeatherQuery } from "@/queries/useWeatherQuery";
 import { IWeatherData } from "@/types";
 import Spinner from "@/components/design-components/spinner";
+import InputField from "@/components/design-components/input";
+import { getGeoCode } from "@/models/geocode.model";
+import Button from "@/components/design-components/button";
+import { IGeoCoordsProps } from "@/types";
 
 const WeatherWidget: React.FC = () => {
-  const { data: weather, error, isLoading } = useWeatherQuery();
+  const [coords, setCoords] = useState<IGeoCoordsProps>({
+    latitude: 0,
+    longitude: 0,
+  });
+  const [location, setLocation] = useState<string>("");
+  const { data: weather, error, isLoading, refetch } = useWeatherQuery(coords);
+
+  const fetchLocation = async () => {
+    const { items } = await getGeoCode(location);
+    setCoords({
+      latitude: items[0].position.lat,
+      longitude: items[0].position.lng,
+    });
+  };
+
+  useEffect(() => {
+    if (coords.latitude && coords.longitude) refetch();
+  }, [refetch, coords]);
 
   if (error) {
-    return <WeatherContainer>Error: {String(error)}</WeatherContainer>;
+    return (
+      <WeatherContainer>
+        <p>Allow location permission to get weather information.</p>
+        OR
+        <InputField
+          name="city"
+          onChange={(e) => setLocation(e.target.value)}
+          type="text"
+          placeholder="Enter city name"
+          value={location}
+        />
+        <Button onClick={fetchLocation}>Get Weather</Button>
+      </WeatherContainer>
+    );
   }
 
   if (isLoading) {
