@@ -40,7 +40,7 @@ The application uses **Context API** for efficient state management tailored to 
 
 - **Header**: Features a logo, navigation menu (Home and About Me), and a user profile icon. The profile icon opens a popup where users can view their details and log out.
 - **To-Do Management**: Users can add, update, and delete to-do items easily.
-- **Weather Widget**: Displays current weather information for added utility.
+- **Weather Widget**: Displays current weather information for added utility. Users can enter a city name if they deny location permissions and view the weather for their city.
 - **Joke Widget**: Provides users with light-hearted jokes to enhance their experience while managing tasks.
 - **Footer**: Includes a link to the developer's GitHub profile.
 
