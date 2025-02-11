@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       >
         <i className="fa fa-github"></i>
       </Link>
-      <span>© 2024 Bita</span>
+      <span>© 2025 Bita</span>
     </FooterContainer>
   );
 };
