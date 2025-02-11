@@ -16,7 +16,7 @@ export const PageContainer = styled.div`
 export const LeftColumn = styled.div`
   flex: 1;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -35,7 +35,7 @@ export const LeftColumn = styled.div`
 export const RightColumn = styled.div`
   flex: 1;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
