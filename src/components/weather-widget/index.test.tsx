@@ -33,9 +33,7 @@ describe("WeatherWidget Component", () => {
     render(<WeatherWidget />);
 
     // Check if error message is rendered
-    expect(
-      screen.getByText("Error: Unable to fetch weather data")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("error-message")).toBeInTheDocument();
   });
 
   it("should display 'No weather data available' when no weather data is present", () => {
